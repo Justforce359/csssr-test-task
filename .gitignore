@@ -1,0 +1,24 @@
+# Maven output
+/target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IntelliJ specific folders
+out/
+
+# Temporary files
+*.class
+*.jar
+*.war
+*.ear
