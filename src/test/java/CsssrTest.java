@@ -17,7 +17,10 @@ public class CsssrTest {
     void startUp () {
         open("https://csssr.github.io/qa-engineer/");
     }
-    @Disabled("Баг: кнопка 'Отправить' остаётся активной при незаполненной форме")
+
+    SelenideElement beautifulInput = $("#beautiful");
+    SelenideElement beautifulInputLabel = $("label[for='beautiful']");
+    
     @Test
     @DisplayName("Send button should be inactive when form fields are empty")
     void sendButtonShouldBeInactiveIfFormIsEmptyTest () {
@@ -25,11 +28,6 @@ public class CsssrTest {
         $(".description").shouldBe(empty);
         $x(".//button[@type='submit']").scrollTo().shouldNotBe(enabled);
     }
-
-    SelenideElement beautifulInput = $("#beautiful");
-    SelenideElement beautifulInputLabel = $("label[for='beautiful']");
-
-    @Disabled("Баг: чекбокс 'Чувство прекрасного' не ставится обратно")
     @Test
     @DisplayName("Bug checkbox should toggle correctly")
     void checkboxShouldToggleBack () {
@@ -41,6 +39,5 @@ public class CsssrTest {
         beautifulInput.shouldNotBe(selected);
         beautifulInputLabel.click();
         beautifulInput.shouldBe(selected);
-
     }
 }
